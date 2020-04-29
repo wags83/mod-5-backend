@@ -2,11 +2,11 @@ class FollowersController < ApplicationController
 
     def index
         followers = Follower.all
-        render json: followers
+        render json: followers.to_json(:include => {:user => {only: :username}})
     end
 
     def show
-        follower = Follower.all
+        follower = Follower.find(params[:id])
         render json: follower
     end
 
