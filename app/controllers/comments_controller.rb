@@ -14,6 +14,27 @@ class CommentsController < ApplicationController
         end
     end
 
+    def new_comment
+        api_id = params[:api_id]
+        game_in_db = Game.find_by(api_id: api_id)
+        content = params[:content]
+        title = params[:title]
+        user_id = params[:user_id]
+        image = params[:image]
+        name = params[:name]
+
+        if game_in_db 
+            new_comment = Comment.create(user_id: user_id, title: title, content: content, user_id: user_id, game_id: game_in_db.id)
+
+            render json: new_comment
+        else
+            new_game = Game.create(api_id: api_id, name: name, art_url: image)
+            new_comment = Comment.create(user_id: user_id, title: title, content: content, user_id: user_id, game_id: new_game.id)
+
+            render json: new_comment
+        end
+    end
+
 
     def show
         comment = Comment.all
@@ -48,6 +69,6 @@ class CommentsController < ApplicationController
     end
 
     def comment_params
-        params.require(:comment).permit(:title, :body, :user_id, :game_id)
+        params.require(:comment).permit(:title, :content, :user_id, :game_id)
     end
 end
