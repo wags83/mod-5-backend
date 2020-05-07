@@ -58,7 +58,7 @@ class GamesController < ApplicationController
     end
 
     def new_releases
-        url = "https://api.rawg.io/api/games?dates=2020-04-01,2020-04-28&platforms=18,1,7"
+        url = "https://api.rawg.io/api/games?dates=2020-04-01,2020-05-05&platforms=18,1,7&ordering=-rating"
         response = RestClient.get("#{url}")
         parsed_response = JSON.parse(response)
         

@@ -2,18 +2,18 @@ class FollowersController < ApplicationController
 
     def index
         followers = Follower.all
-        render json: followers.to_json(:include => {:user => {only: :username}})
+        render json: followers.to_json(:include => {:user => {:only => [:username, :avatar_url]}})
     end
 
     def show
         follower = Follower.find(params[:id])
-        render json: follower
+        render json: follower.to_json(:include => {:user => {:only => [:username, :avatar_url]}})
     end
 
     def create
         follower = Follower.new(follower_params)
         if follower.save!
-            render json: follower
+            render json: follower.to_json(:include => {:user => {:only => [:username, :avatar_url]}})
         else
             render json: "Something went wrong.".to_json  
         end

@@ -1,7 +1,7 @@
 class LikedGamesController < ApplicationController
     def index
         liked_games = LikedGame.all
-        render json: liked_games.to_json(:include => {:game => {:only => [:name, :art_url]}})
+        render json: liked_games.to_json(:include => {:game => {:only => [:name, :art_url, :api_id]}})
     end
 
     def show
