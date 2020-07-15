@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Developed dynamic gaming community website that allows users to view game info, comment, review and connect with other like-minded gamers.
 
-Things you may want to cover:
+Created front end using React and ChakraUI.  Back end created using Ruby and Rails, allowing for custom API endpoints that support the dynamic content of the front end, as well as integrating with external APIs to provide additional data.
 
-* Ruby version
+Front end link: https://github.com/wags83/mod-5-frontend
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
