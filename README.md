@@ -1,4 +1,4 @@
-# README
+# README 
 
 Developed dynamic gaming community website that allows users to view game info, comment, review and connect with other like-minded gamers.
 
